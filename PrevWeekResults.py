@@ -7,8 +7,7 @@ year = today.year
 # Variable declaration
 df = nfl.import_schedules(years=[year])
 # NFL Results log
-finalScores = df[['game_id', 'total']].dropna()
-finalScores.columns = ['Game ID', 'Total']
+finalScores = df[['game_id', 'total', 'total_line', 'over_odds', 'under_odds', 'result', 'spread_line']].dropna()
 
 # Export to Sheets
 import gspread
