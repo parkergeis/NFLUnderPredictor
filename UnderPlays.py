@@ -1,12 +1,6 @@
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-from sklearn.neighbors import KNeighborsClassifier, NearestNeighbors, LocalOutlierFactor
-from sklearn.metrics import accuracy_score, classification_report, confusion_matrix, ConfusionMatrixDisplay
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import StandardScaler
-from sklearn.model_selection import GridSearchCV, train_test_split
-from sklearn.feature_selection import SelectKBest, f_classif
+from sklearn.ensemble import RandomForestClassifier
 import nfl_data_py as nfl
 import datetime as dt
 import warnings
@@ -49,73 +43,32 @@ df.replace(dict_surface, inplace=True)
 dict_surface = {"surface": {"grass": 0, "grass ": 0, "fieldturf": 1, "astroturf": 2, "sportturf": 3, "matrixturf": 4, "astroplay": 5, "a_turf": 6, "dessograss": 7}}
 df.replace(dict_surface, inplace=True)
 
-df = pd.get_dummies(df, drop_first=True, columns=['game_type', 'location', 'stadium_id'])
-df.reset_index(drop=True, inplace=True)
+df = pd.get_dummies(df, drop_first=True, columns=['game_type', 'location', 'stadium_id', 'home_team', 'away_team'])
 
-# Feature selection
-feat_df = df.dropna()
-X_variables = feat_df.drop(['Under', 'game_id', 'gameday', 'away_team', 'away_score', 'home_team', 'home_score', 'result', 'total', 'overtime', 'old_game_id', 'gsis', 'nfl_detail_id', 'pfr', 'pff', 'espn', 'ftn', 'temp', 'wind', 'away_qb_id', 'home_qb_id', 'away_qb_name', 'home_qb_name', 'away_coach', 'home_coach', 'referee', 'stadium'], axis=1).copy()
-y_variable = feat_df['Under'].copy()
+features = df.drop(['Under', 'Push', 'gameday', 'game_id', 'home_score', 'away_score', 'result', 'total', 'overtime', 'old_game_id', 'gsis', 'nfl_detail_id', 'pfr', 'pff', 'espn', 'ftn', 'away_qb_id', 'home_qb_id', 'away_qb_name', 'home_qb_name', 'away_coach', 'home_coach', 'referee', 'stadium', 'wind', 'temp'], axis=1).columns
 
-selected_X = SelectKBest(f_classif, k=16)
-selected_X.fit(X_variables, y_variable)
-
-indices = selected_X.get_support(indices=True)
-selected_features = X_variables.columns[indices]
-
-# # Model building
-train_df = df[(df.season < year) & (df.week < predWeek) | (df.season < year)]
+train_df = df[(df.season < year) | ((df.season == year) & (df.week < predWeek))]
 test_df = df[(df.season == year) & (df.week == predWeek)]
-X_train = train_df[selected_features]
+train_df.dropna(inplace=True)
+X_train = train_df[features]
 y_train = train_df.Under
-X_test = test_df[selected_features]
+X_test = test_df[features]
 y_test = test_df.Under
 
-# Define pipeline for use after split
-pipe = [('scaler', StandardScaler()),
-         ('knn', KNeighborsClassifier())]
-pipeline = Pipeline(pipe)
-parameters = {'knn__n_neighbors': np.arange(1,50)}
-
-knncv = GridSearchCV(estimator=pipeline,
-                     param_grid=parameters,
-                     n_jobs=-1,
-                     cv=5)
-
-classif = knncv.fit(X_train,y_train)
-
-# pipe2 = Pipeline([
-#     ('scaler', StandardScaler()),
-#     ('lof', LocalOutlierFactor(novelty=True))
-# ])
-
-# pipe2.fit(X_train)
-# y_test_nov = pipe2.predict(X_test)
-
-# mask = [y == 1 for y in y_test_nov]
-
-# X_test = X_test[mask]
-# y_test = y_test[mask]
-y_pred = classif.predict(X_test)
-y_true = y_test
-X_test['Prediction'] = y_pred
-
+from sklearn.ensemble import RandomForestClassifier
+rf = RandomForestClassifier(n_estimators=50, min_samples_split=10, random_state=1)
+rf.fit(X_train, y_train)
+preds = rf.predict(X_test)
+X_test['Prediction'] = preds
 # Predicted Plays log
-nextPlays = pd.merge(right=X_test, left=test_df, right_index=True, left_index=True, how='left')
+nextPlays = pd.merge(right=X_test, left=currSeason, right_index=True, left_index=True, how='left')
 nextPlays = nextPlays[nextPlays.Prediction == 1]
-nextPlays = nextPlays[['game_id', 'season', 'week_x', 'home_team', 'away_team', 'gametime', 'weekday', 'total_line', 'under_odds_x']]
+nextPlays = nextPlays[['game_id', 'season_x', 'week_x', 'home_team', 'away_team', 'gametime_x', 'weekday_x', 'total_line_x', 'under_odds_x']]
 nextPlays.columns = ['Game ID', 'Season', 'Week', 'Home', 'Away', 'Start Time', 'Day', 'Total Line', 'Under Odds']
 
 # Value cleanup
 dict_day = {"Day": {0: "Sunday", 1: "Monday", 2: "Tuesday", 3: "Wednesday", 4: "Thursday", 5: "Friday", 6: "Saturday"}}
 nextPlays.replace(dict_day, inplace=True)
-def seconds_to_hhmm(total_seconds):
-    hours = total_seconds // 3600
-    minutes = (total_seconds % 3600) // 60
-    if hours > 12:
-        hours = hours - 12
-    return f"{hours}:{minutes:02}"
-nextPlays['Start Time'] = nextPlays['Start Time'].apply(seconds_to_hhmm)
 
 # Export to Sheets
 import gspread
