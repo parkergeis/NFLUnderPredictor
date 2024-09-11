@@ -15,7 +15,7 @@ predWeek = currSeason[['week', 'total']].dropna()
 if np.isnan(predWeek.week.max()):
     predWeek = 1
 else:
-    predWeek = predWeek.week.max()
+    predWeek = predWeek.week.max() + 1
 
 
 # Prepare dataframe by dropping irrelevant predictors and formatting columns for KNN

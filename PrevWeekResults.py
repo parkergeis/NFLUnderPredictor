@@ -5,9 +5,9 @@ today = dt.date.today()
 year = today.year
 
 # Variable declaration
-df = nfl.import_schedules(years=range(year-3,year+1))
+df = nfl.import_schedules(years=range(year-5,year+1))
 # NFL Results log
-finalScores = df[['game_id', 'season', 'week', 'home_team', 'away_team', 'total', 'total_line', 'over_odds', 'under_odds', 'result', 'spread_line']].dropna()
+finalScores = df[['game_id', 'season', 'week', 'home_team', 'home_score', 'away_team', 'away_score', 'total_line', 'total', 'over_odds', 'under_odds', 'spread_line', 'result']].dropna()
 
 # Export to Sheets
 import gspread
@@ -18,5 +18,5 @@ sh = gc.open("Over/Under NFL Model")
 worksheet2 = sh.worksheet("Results")
 total_rows = worksheet2.row_count
 if total_rows > 1:
-    worksheet2.batch_clear([f"A2:Z{total_rows}"])
+    worksheet2.batch_clear([f"A2:M{total_rows}"])
 worksheet2.append_rows(finalScores.values.tolist())
