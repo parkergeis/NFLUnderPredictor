@@ -1,0 +1,1720 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20242.24.0711.1636                               -->
+<workbook original-version='18.1' source-build='2024.2.1 (20242.24.0711.1636)' source-platform='mac' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <_.fcp.AnimationOnByDefault.true...AnimationOnByDefault />
+    <_.fcp.MarkAnimation.true...MarkAnimation />
+    <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
+    <_.fcp.ObjectModelExtractV2.true...ObjectModelExtractV2 />
+    <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
+    <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <SortTagCleanup />
+    <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <_.fcp.AnimationOnByDefault.false...style>
+    <_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule element='animation'>
+      <_.fcp.AnimationOnByDefault.false...format attr='animation-on' value='ao-on' />
+    </_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule>
+  </_.fcp.AnimationOnByDefault.false...style>
+  <datasources>
+    <datasource caption='Over_Under NFL Model' inline='true' name='federated.1eagq6r0qdbtrn18p4ntk1dq1ipx' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='Over_Under NFL Model' name='cloudfile:googledrive-excel-direct.1vse2cz1ygbs6c141lgw312odu5q'>
+            <connection class='cloudfile:googledrive-excel-direct' cleaning='no' cloudFileExtension='xlsx' cloudFileId='1n2Z00Mz2Bckgcm9I_Itd1-V-wQdwMR1R-quwBVckDRQ' cloudFileMetadata_-_folder='root' cloudFileName='Over_Under NFL Model.xlsx' cloudFileProvider='googledrive' cloudFileRequestURL='https://www.googleapis.com/drive/v3/files/1n2Z00Mz2Bckgcm9I_Itd1-V-wQdwMR1R-quwBVckDRQ/export?mimeType=application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' compat='no' dataRefreshTime='' filename='Over_Under NFL Model.xlsx' interpretationMode='0' server='' server-oauth='' username='parkert.geis@gmail.com' validate='no' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='cloudfile:googledrive-excel-direct.1vse2cz1ygbs6c141lgw312odu5q' name='Plays' table='[Plays$]' type='table'>
+          <columns gridOrigin='A1:K22:no:A1:K22:0' header='yes' outcome='6'>
+            <column datatype='string' name='Game ID' ordinal='0' />
+            <column datatype='integer' name='Season' ordinal='1' />
+            <column datatype='integer' name='Week' ordinal='2' />
+            <column datatype='string' name='Home' ordinal='3' />
+            <column datatype='string' name='Away' ordinal='4' />
+            <column datatype='string' name='Start Time' ordinal='5' />
+            <column datatype='string' name='Start Day' ordinal='6' />
+            <column datatype='real' name='Total Line' ordinal='7' />
+            <column datatype='integer' name='Under Odds' ordinal='8' />
+            <column datatype='integer' name='Result' ordinal='9' />
+            <column datatype='string' name='Outcome' ordinal='10' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.false...relation>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation type='collection'>
+          <relation connection='cloudfile:googledrive-excel-direct.1vse2cz1ygbs6c141lgw312odu5q' name='Results' table='[Results$]' type='table'>
+            <columns gridOrigin='A1:V2000:no:A1:V2000:0' header='yes' outcome='2'>
+              <column datatype='string' name='Game ID' ordinal='0' />
+              <column datatype='string' name='Season' ordinal='1' />
+              <column datatype='integer' name='Week' ordinal='2' />
+              <column datatype='string' name='Home' ordinal='3' />
+              <column datatype='integer' name='Home Score' ordinal='4' />
+              <column datatype='string' name='Away' ordinal='5' />
+              <column datatype='integer' name='Away Score' ordinal='6' />
+              <column datatype='real' name='Total Line' ordinal='7' />
+              <column datatype='integer' name='Total' ordinal='8' />
+              <column datatype='integer' name='Under Odds' ordinal='9' />
+              <column datatype='integer' name='Over Odds' ordinal='10' />
+              <column datatype='real' name='Spread' ordinal='11' />
+              <column datatype='integer' name='Result' ordinal='12' />
+              <column datatype='string' name='Home QB' ordinal='13' />
+              <column datatype='string' name='Away QB' ordinal='14' />
+              <column datatype='string' name='Home Coach' ordinal='15' />
+              <column datatype='string' name='Away Coach' ordinal='16' />
+              <column datatype='string' name='Over/Under' ordinal='17' />
+              <column datatype='string' name='H/A Covered' ordinal='18' />
+              <column datatype='string' name='Team Covered' ordinal='19' />
+              <column datatype='string' name='H/A Winner' ordinal='20' />
+              <column datatype='string' name='Team Winner' ordinal='21' />
+            </columns>
+          </relation>
+          <relation connection='cloudfile:googledrive-excel-direct.1vse2cz1ygbs6c141lgw312odu5q' name='Plays' table='[Plays$]' type='table'>
+            <columns gridOrigin='A1:K22:no:A1:K22:0' header='yes' outcome='6'>
+              <column datatype='string' name='Game ID' ordinal='0' />
+              <column datatype='integer' name='Season' ordinal='1' />
+              <column datatype='integer' name='Week' ordinal='2' />
+              <column datatype='string' name='Home' ordinal='3' />
+              <column datatype='string' name='Away' ordinal='4' />
+              <column datatype='string' name='Start Time' ordinal='5' />
+              <column datatype='string' name='Start Day' ordinal='6' />
+              <column datatype='real' name='Total Line' ordinal='7' />
+              <column datatype='integer' name='Under Odds' ordinal='8' />
+              <column datatype='integer' name='Result' ordinal='9' />
+              <column datatype='string' name='Outcome' ordinal='10' />
+            </columns>
+          </relation>
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <cols>
+          <map key='[Away (Plays)]' value='[Plays].[Away]' />
+          <map key='[Away Coach]' value='[Results].[Away Coach]' />
+          <map key='[Away QB]' value='[Results].[Away QB]' />
+          <map key='[Away Score]' value='[Results].[Away Score]' />
+          <map key='[Away]' value='[Results].[Away]' />
+          <map key='[Game ID (Plays)]' value='[Plays].[Game ID]' />
+          <map key='[Game ID]' value='[Results].[Game ID]' />
+          <map key='[H/A Covered]' value='[Results].[H/A Covered]' />
+          <map key='[H/A Winner]' value='[Results].[H/A Winner]' />
+          <map key='[Home (Plays)]' value='[Plays].[Home]' />
+          <map key='[Home Coach]' value='[Results].[Home Coach]' />
+          <map key='[Home QB]' value='[Results].[Home QB]' />
+          <map key='[Home Score]' value='[Results].[Home Score]' />
+          <map key='[Home]' value='[Results].[Home]' />
+          <map key='[Outcome]' value='[Plays].[Outcome]' />
+          <map key='[Over Odds]' value='[Results].[Over Odds]' />
+          <map key='[Over/Under]' value='[Results].[Over/Under]' />
+          <map key='[Result (Plays)]' value='[Plays].[Result]' />
+          <map key='[Result]' value='[Results].[Result]' />
+          <map key='[Season (Plays)]' value='[Plays].[Season]' />
+          <map key='[Season]' value='[Results].[Season]' />
+          <map key='[Spread]' value='[Results].[Spread]' />
+          <map key='[Start Day]' value='[Plays].[Start Day]' />
+          <map key='[Start Time]' value='[Plays].[Start Time]' />
+          <map key='[Team Covered]' value='[Results].[Team Covered]' />
+          <map key='[Team Winner]' value='[Results].[Team Winner]' />
+          <map key='[Total Line (Plays)]' value='[Plays].[Total Line]' />
+          <map key='[Total Line]' value='[Results].[Total Line]' />
+          <map key='[Total]' value='[Results].[Total]' />
+          <map key='[Under Odds (Plays)]' value='[Plays].[Under Odds]' />
+          <map key='[Under Odds]' value='[Results].[Under Odds]' />
+          <map key='[Week (Plays)]' value='[Plays].[Week]' />
+          <map key='[Week]' value='[Results].[Week]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Results]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>4</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:V2000:no:A1:V2000:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>2</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Plays]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:K22:no:A1:K22:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Game ID</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Game ID]</local-name>
+            <parent-name>[Results]</parent-name>
+            <remote-alias>Game ID</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Season</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Season]</local-name>
+            <parent-name>[Results]</parent-name>
+            <remote-alias>Season</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Week</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Week]</local-name>
+            <parent-name>[Results]</parent-name>
+            <remote-alias>Week</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Home</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Home]</local-name>
+            <parent-name>[Results]</parent-name>
+            <remote-alias>Home</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Home Score</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Home Score]</local-name>
+            <parent-name>[Results]</parent-name>
+            <remote-alias>Home Score</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Away</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Away]</local-name>
+            <parent-name>[Results]</parent-name>
+            <remote-alias>Away</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Away Score</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Away Score]</local-name>
+            <parent-name>[Results]</parent-name>
+            <remote-alias>Away Score</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Total Line</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Total Line]</local-name>
+            <parent-name>[Results]</parent-name>
+            <remote-alias>Total Line</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Total</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Total]</local-name>
+            <parent-name>[Results]</parent-name>
+            <remote-alias>Total</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Under Odds</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Under Odds]</local-name>
+            <parent-name>[Results]</parent-name>
+            <remote-alias>Under Odds</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Over Odds</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Over Odds]</local-name>
+            <parent-name>[Results]</parent-name>
+            <remote-alias>Over Odds</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Spread</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Spread]</local-name>
+            <parent-name>[Results]</parent-name>
+            <remote-alias>Spread</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Result</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Result]</local-name>
+            <parent-name>[Results]</parent-name>
+            <remote-alias>Result</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Home QB</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Home QB]</local-name>
+            <parent-name>[Results]</parent-name>
+            <remote-alias>Home QB</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Away QB</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Away QB]</local-name>
+            <parent-name>[Results]</parent-name>
+            <remote-alias>Away QB</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Home Coach</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Home Coach]</local-name>
+            <parent-name>[Results]</parent-name>
+            <remote-alias>Home Coach</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Away Coach</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Away Coach]</local-name>
+            <parent-name>[Results]</parent-name>
+            <remote-alias>Away Coach</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Over/Under</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Over/Under]</local-name>
+            <parent-name>[Results]</parent-name>
+            <remote-alias>Over/Under</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>H/A Covered</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[H/A Covered]</local-name>
+            <parent-name>[Results]</parent-name>
+            <remote-alias>H/A Covered</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Team Covered</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Team Covered]</local-name>
+            <parent-name>[Results]</parent-name>
+            <remote-alias>Team Covered</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>H/A Winner</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[H/A Winner]</local-name>
+            <parent-name>[Results]</parent-name>
+            <remote-alias>H/A Winner</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Team Winner</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Team Winner]</local-name>
+            <parent-name>[Results]</parent-name>
+            <remote-alias>Team Winner</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Game ID</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Game ID (Plays)]</local-name>
+            <parent-name>[Plays]</parent-name>
+            <remote-alias>Game ID</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Plays_A7316BE6672A4D7F9260C38157F00590]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Season</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Season (Plays)]</local-name>
+            <parent-name>[Plays]</parent-name>
+            <remote-alias>Season</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Plays_A7316BE6672A4D7F9260C38157F00590]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Week</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Week (Plays)]</local-name>
+            <parent-name>[Plays]</parent-name>
+            <remote-alias>Week</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Plays_A7316BE6672A4D7F9260C38157F00590]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Home</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Home (Plays)]</local-name>
+            <parent-name>[Plays]</parent-name>
+            <remote-alias>Home</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Plays_A7316BE6672A4D7F9260C38157F00590]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Away</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Away (Plays)]</local-name>
+            <parent-name>[Plays]</parent-name>
+            <remote-alias>Away</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Plays_A7316BE6672A4D7F9260C38157F00590]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Start Time</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Start Time]</local-name>
+            <parent-name>[Plays]</parent-name>
+            <remote-alias>Start Time</remote-alias>
+            <ordinal>27</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Plays_A7316BE6672A4D7F9260C38157F00590]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Start Day</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Start Day]</local-name>
+            <parent-name>[Plays]</parent-name>
+            <remote-alias>Start Day</remote-alias>
+            <ordinal>28</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Plays_A7316BE6672A4D7F9260C38157F00590]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Total Line</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Total Line (Plays)]</local-name>
+            <parent-name>[Plays]</parent-name>
+            <remote-alias>Total Line</remote-alias>
+            <ordinal>29</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Plays_A7316BE6672A4D7F9260C38157F00590]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Under Odds</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Under Odds (Plays)]</local-name>
+            <parent-name>[Plays]</parent-name>
+            <remote-alias>Under Odds</remote-alias>
+            <ordinal>30</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Plays_A7316BE6672A4D7F9260C38157F00590]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Result</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Result (Plays)]</local-name>
+            <parent-name>[Plays]</parent-name>
+            <remote-alias>Result</remote-alias>
+            <ordinal>31</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Plays_A7316BE6672A4D7F9260C38157F00590]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Outcome</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Outcome]</local-name>
+            <parent-name>[Plays]</parent-name>
+            <remote-alias>Outcome</remote-alias>
+            <ordinal>32</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Plays_A7316BE6672A4D7F9260C38157F00590]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Win Count' datatype='integer' name='[Calculation_261912526504853504]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='COUNT([Team Winner])' />
+      </column>
+      <column caption='Match Count' datatype='integer' name='[Calculation_261912526505029633]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='COUNTD([Game ID])' />
+      </column>
+      <column caption='Win Pct' datatype='real' name='[Calculation_261912526505095170]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[Calculation_261912526504853504] / [Calculation_261912526505029633]' />
+      </column>
+      <column caption='Home Wins' datatype='integer' name='[Calculation_261912526510211076]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='SUM([Win Count (copy)_261912526509551619])' />
+      </column>
+      <column caption='Home Win %' datatype='real' name='[Calculation_261912526510702597]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[Calculation_261912526510211076]/[Calculation_261912526505029633]' />
+      </column>
+      <column datatype='string' name='[H/A Winner]' role='dimension' type='nominal' />
+      <column datatype='integer' name='[Week (Plays)]' role='dimension' type='quantitative' />
+      <column datatype='integer' name='[Week]' role='dimension' type='ordinal' />
+      <column caption='Home Win Count' datatype='integer' name='[Win Count (copy)_261912526509551619]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF [H/A Winner] = &quot;Home&quot; THEN 1 ELSE 0 END' />
+      </column>
+      <_.fcp.ObjectModelTableType.true...column caption='Plays' datatype='table' name='[__tableau_internal_object_id__].[Plays_A7316BE6672A4D7F9260C38157F00590]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='Results' datatype='table' name='[__tableau_internal_object_id__].[Results_B4ECB7A3669940B294943A207FFEEF3A]' role='measure' type='quantitative' />
+      <column-instance column='[H/A Winner]' derivation='None' name='[none:H/A Winner:nk]' pivot='key' type='nominal' />
+      <extract _.fcp.ObjectModelExtractV2.true...object-id='' _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' units='records'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='/var/folders/z2/z8hd8jjx4mnd5sw_1wqj8hch0000gn/T/tableau-temp/#TableauTemp_1pvq62717jt7m814tgbui1ihf9kg.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='09/11/2024 09:05:20 PM' username='tableau_internal_user'>
+          <_.fcp.ObjectModelEncapsulateLegacy.false...relation name='Plays_A7316BE6672A4D7F9260C38157F00590' table='[Extract].[Plays_A7316BE6672A4D7F9260C38157F00590]' type='table' />
+          <_.fcp.ObjectModelEncapsulateLegacy.true...relation type='collection'>
+            <relation name='Results_B4ECB7A3669940B294943A207FFEEF3A' table='[Extract].[Results_B4ECB7A3669940B294943A207FFEEF3A]' type='table' />
+            <relation name='Plays_A7316BE6672A4D7F9260C38157F00590' table='[Extract].[Plays_A7316BE6672A4D7F9260C38157F00590]' type='table' />
+          </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+          <cols>
+            <map key='[Away (Plays)]' value='[Plays_A7316BE6672A4D7F9260C38157F00590].[Away]' />
+            <map key='[Away Coach]' value='[Results_B4ECB7A3669940B294943A207FFEEF3A].[Away Coach]' />
+            <map key='[Away QB]' value='[Results_B4ECB7A3669940B294943A207FFEEF3A].[Away QB]' />
+            <map key='[Away Score]' value='[Results_B4ECB7A3669940B294943A207FFEEF3A].[Away Score]' />
+            <map key='[Away]' value='[Results_B4ECB7A3669940B294943A207FFEEF3A].[Away]' />
+            <map key='[Game ID (Plays)]' value='[Plays_A7316BE6672A4D7F9260C38157F00590].[Game ID]' />
+            <map key='[Game ID]' value='[Results_B4ECB7A3669940B294943A207FFEEF3A].[Game ID]' />
+            <map key='[H/A Covered]' value='[Results_B4ECB7A3669940B294943A207FFEEF3A].[H/A Covered]' />
+            <map key='[H/A Winner]' value='[Results_B4ECB7A3669940B294943A207FFEEF3A].[H/A Winner]' />
+            <map key='[Home (Plays)]' value='[Plays_A7316BE6672A4D7F9260C38157F00590].[Home]' />
+            <map key='[Home Coach]' value='[Results_B4ECB7A3669940B294943A207FFEEF3A].[Home Coach]' />
+            <map key='[Home QB]' value='[Results_B4ECB7A3669940B294943A207FFEEF3A].[Home QB]' />
+            <map key='[Home Score]' value='[Results_B4ECB7A3669940B294943A207FFEEF3A].[Home Score]' />
+            <map key='[Home]' value='[Results_B4ECB7A3669940B294943A207FFEEF3A].[Home]' />
+            <map key='[Outcome]' value='[Plays_A7316BE6672A4D7F9260C38157F00590].[Outcome]' />
+            <map key='[Over Odds]' value='[Results_B4ECB7A3669940B294943A207FFEEF3A].[Over Odds]' />
+            <map key='[Over/Under]' value='[Results_B4ECB7A3669940B294943A207FFEEF3A].[Over/Under]' />
+            <map key='[Result (Plays)]' value='[Plays_A7316BE6672A4D7F9260C38157F00590].[Result]' />
+            <map key='[Result]' value='[Results_B4ECB7A3669940B294943A207FFEEF3A].[Result]' />
+            <map key='[Season (Plays)]' value='[Plays_A7316BE6672A4D7F9260C38157F00590].[Season]' />
+            <map key='[Season]' value='[Results_B4ECB7A3669940B294943A207FFEEF3A].[Season]' />
+            <map key='[Spread]' value='[Results_B4ECB7A3669940B294943A207FFEEF3A].[Spread]' />
+            <map key='[Start Day]' value='[Plays_A7316BE6672A4D7F9260C38157F00590].[Start Day]' />
+            <map key='[Start Time]' value='[Plays_A7316BE6672A4D7F9260C38157F00590].[Start Time]' />
+            <map key='[Team Covered]' value='[Results_B4ECB7A3669940B294943A207FFEEF3A].[Team Covered]' />
+            <map key='[Team Winner]' value='[Results_B4ECB7A3669940B294943A207FFEEF3A].[Team Winner]' />
+            <map key='[Total Line (Plays)]' value='[Plays_A7316BE6672A4D7F9260C38157F00590].[Total Line]' />
+            <map key='[Total Line]' value='[Results_B4ECB7A3669940B294943A207FFEEF3A].[Total Line]' />
+            <map key='[Total]' value='[Results_B4ECB7A3669940B294943A207FFEEF3A].[Total]' />
+            <map key='[Under Odds (Plays)]' value='[Plays_A7316BE6672A4D7F9260C38157F00590].[Under Odds]' />
+            <map key='[Under Odds]' value='[Results_B4ECB7A3669940B294943A207FFEEF3A].[Under Odds]' />
+            <map key='[Week (Plays)]' value='[Plays_A7316BE6672A4D7F9260C38157F00590].[Week]' />
+            <map key='[Week]' value='[Results_B4ECB7A3669940B294943A207FFEEF3A].[Week]' />
+          </cols>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>Game ID</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Game ID]</local-name>
+              <parent-name>[Results_B4ECB7A3669940B294943A207FFEEF3A]</parent-name>
+              <remote-alias>Game ID</remote-alias>
+              <ordinal>0</ordinal>
+              <family>Results</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1606</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Season</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Season]</local-name>
+              <parent-name>[Results_B4ECB7A3669940B294943A207FFEEF3A]</parent-name>
+              <remote-alias>Season</remote-alias>
+              <ordinal>1</ordinal>
+              <family>Results</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>7</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Week</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Week]</local-name>
+              <parent-name>[Results_B4ECB7A3669940B294943A207FFEEF3A]</parent-name>
+              <remote-alias>Week</remote-alias>
+              <ordinal>2</ordinal>
+              <family>Results</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>23</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Home</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Home]</local-name>
+              <parent-name>[Results_B4ECB7A3669940B294943A207FFEEF3A]</parent-name>
+              <remote-alias>Home</remote-alias>
+              <ordinal>3</ordinal>
+              <family>Results</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>34</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Home Score</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Home Score]</local-name>
+              <parent-name>[Results_B4ECB7A3669940B294943A207FFEEF3A]</parent-name>
+              <remote-alias>Home Score</remote-alias>
+              <ordinal>4</ordinal>
+              <family>Results</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>50</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Away</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Away]</local-name>
+              <parent-name>[Results_B4ECB7A3669940B294943A207FFEEF3A]</parent-name>
+              <remote-alias>Away</remote-alias>
+              <ordinal>5</ordinal>
+              <family>Results</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>34</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Away Score</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Away Score]</local-name>
+              <parent-name>[Results_B4ECB7A3669940B294943A207FFEEF3A]</parent-name>
+              <remote-alias>Away Score</remote-alias>
+              <ordinal>6</ordinal>
+              <family>Results</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>49</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Total Line</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[Total Line]</local-name>
+              <parent-name>[Results_B4ECB7A3669940B294943A207FFEEF3A]</parent-name>
+              <remote-alias>Total Line</remote-alias>
+              <ordinal>7</ordinal>
+              <family>Results</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>53</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Total</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Total]</local-name>
+              <parent-name>[Results_B4ECB7A3669940B294943A207FFEEF3A]</parent-name>
+              <remote-alias>Total</remote-alias>
+              <ordinal>8</ordinal>
+              <family>Results</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>77</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Under Odds</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Under Odds]</local-name>
+              <parent-name>[Results_B4ECB7A3669940B294943A207FFEEF3A]</parent-name>
+              <remote-alias>Under Odds</remote-alias>
+              <ordinal>9</ordinal>
+              <family>Results</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>30</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Over Odds</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Over Odds]</local-name>
+              <parent-name>[Results_B4ECB7A3669940B294943A207FFEEF3A]</parent-name>
+              <remote-alias>Over Odds</remote-alias>
+              <ordinal>10</ordinal>
+              <family>Results</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>31</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Spread</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[Spread]</local-name>
+              <parent-name>[Results_B4ECB7A3669940B294943A207FFEEF3A]</parent-name>
+              <remote-alias>Spread</remote-alias>
+              <ordinal>11</ordinal>
+              <family>Results</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>72</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Result</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Result]</local-name>
+              <parent-name>[Results_B4ECB7A3669940B294943A207FFEEF3A]</parent-name>
+              <remote-alias>Result</remote-alias>
+              <ordinal>12</ordinal>
+              <family>Results</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>78</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Home QB</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Home QB]</local-name>
+              <parent-name>[Results_B4ECB7A3669940B294943A207FFEEF3A]</parent-name>
+              <remote-alias>Home QB</remote-alias>
+              <ordinal>13</ordinal>
+              <family>Results</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>115</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Away QB</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Away QB]</local-name>
+              <parent-name>[Results_B4ECB7A3669940B294943A207FFEEF3A]</parent-name>
+              <remote-alias>Away QB</remote-alias>
+              <ordinal>14</ordinal>
+              <family>Results</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>111</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Home Coach</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Home Coach]</local-name>
+              <parent-name>[Results_B4ECB7A3669940B294943A207FFEEF3A]</parent-name>
+              <remote-alias>Home Coach</remote-alias>
+              <ordinal>15</ordinal>
+              <family>Results</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>68</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Away Coach</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Away Coach]</local-name>
+              <parent-name>[Results_B4ECB7A3669940B294943A207FFEEF3A]</parent-name>
+              <remote-alias>Away Coach</remote-alias>
+              <ordinal>16</ordinal>
+              <family>Results</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>71</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Over/Under</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Over/Under]</local-name>
+              <parent-name>[Results_B4ECB7A3669940B294943A207FFEEF3A]</parent-name>
+              <remote-alias>Over/Under</remote-alias>
+              <ordinal>17</ordinal>
+              <family>Results</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>H/A Covered</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[H/A Covered]</local-name>
+              <parent-name>[Results_B4ECB7A3669940B294943A207FFEEF3A]</parent-name>
+              <remote-alias>H/A Covered</remote-alias>
+              <ordinal>18</ordinal>
+              <family>Results</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Team Covered</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Team Covered]</local-name>
+              <parent-name>[Results_B4ECB7A3669940B294943A207FFEEF3A]</parent-name>
+              <remote-alias>Team Covered</remote-alias>
+              <ordinal>19</ordinal>
+              <family>Results</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>34</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>H/A Winner</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[H/A Winner]</local-name>
+              <parent-name>[Results_B4ECB7A3669940B294943A207FFEEF3A]</parent-name>
+              <remote-alias>H/A Winner</remote-alias>
+              <ordinal>20</ordinal>
+              <family>Results</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Team Winner</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Team Winner]</local-name>
+              <parent-name>[Results_B4ECB7A3669940B294943A207FFEEF3A]</parent-name>
+              <remote-alias>Team Winner</remote-alias>
+              <ordinal>21</ordinal>
+              <family>Results</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>34</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Results_B4ECB7A3669940B294943A207FFEEF3A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Game ID</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Game ID (Plays)]</local-name>
+              <parent-name>[Plays_A7316BE6672A4D7F9260C38157F00590]</parent-name>
+              <remote-alias>Game ID</remote-alias>
+              <ordinal>22</ordinal>
+              <family>Plays</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>21</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Plays_A7316BE6672A4D7F9260C38157F00590]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Season</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Season (Plays)]</local-name>
+              <parent-name>[Plays_A7316BE6672A4D7F9260C38157F00590]</parent-name>
+              <remote-alias>Season</remote-alias>
+              <ordinal>23</ordinal>
+              <family>Plays</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Plays_A7316BE6672A4D7F9260C38157F00590]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Week</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Week (Plays)]</local-name>
+              <parent-name>[Plays_A7316BE6672A4D7F9260C38157F00590]</parent-name>
+              <remote-alias>Week</remote-alias>
+              <ordinal>24</ordinal>
+              <family>Plays</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Plays_A7316BE6672A4D7F9260C38157F00590]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Home</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Home (Plays)]</local-name>
+              <parent-name>[Plays_A7316BE6672A4D7F9260C38157F00590]</parent-name>
+              <remote-alias>Home</remote-alias>
+              <ordinal>25</ordinal>
+              <family>Plays</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>20</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Plays_A7316BE6672A4D7F9260C38157F00590]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Away</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Away (Plays)]</local-name>
+              <parent-name>[Plays_A7316BE6672A4D7F9260C38157F00590]</parent-name>
+              <remote-alias>Away</remote-alias>
+              <ordinal>26</ordinal>
+              <family>Plays</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>20</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Plays_A7316BE6672A4D7F9260C38157F00590]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Start Time</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Start Time]</local-name>
+              <parent-name>[Plays_A7316BE6672A4D7F9260C38157F00590]</parent-name>
+              <remote-alias>Start Time</remote-alias>
+              <ordinal>27</ordinal>
+              <family>Plays</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Plays_A7316BE6672A4D7F9260C38157F00590]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Start Day</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Start Day]</local-name>
+              <parent-name>[Plays_A7316BE6672A4D7F9260C38157F00590]</parent-name>
+              <remote-alias>Start Day</remote-alias>
+              <ordinal>28</ordinal>
+              <family>Plays</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Plays_A7316BE6672A4D7F9260C38157F00590]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Total Line</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[Total Line (Plays)]</local-name>
+              <parent-name>[Plays_A7316BE6672A4D7F9260C38157F00590]</parent-name>
+              <remote-alias>Total Line</remote-alias>
+              <ordinal>29</ordinal>
+              <family>Plays</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>18</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Plays_A7316BE6672A4D7F9260C38157F00590]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Under Odds</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Under Odds (Plays)]</local-name>
+              <parent-name>[Plays_A7316BE6672A4D7F9260C38157F00590]</parent-name>
+              <remote-alias>Under Odds</remote-alias>
+              <ordinal>30</ordinal>
+              <family>Plays</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Plays_A7316BE6672A4D7F9260C38157F00590]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Result</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Result (Plays)]</local-name>
+              <parent-name>[Plays_A7316BE6672A4D7F9260C38157F00590]</parent-name>
+              <remote-alias>Result</remote-alias>
+              <ordinal>31</ordinal>
+              <family>Plays</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>10</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Plays_A7316BE6672A4D7F9260C38157F00590]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Outcome</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Outcome]</local-name>
+              <parent-name>[Plays_A7316BE6672A4D7F9260C38157F00590]</parent-name>
+              <remote-alias>Outcome</remote-alias>
+              <ordinal>32</ordinal>
+              <family>Plays</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Plays_A7316BE6672A4D7F9260C38157F00590]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:H/A Winner:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;Away&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Tie&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Home&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <field-sort-info field-sort-order-type='custom-order'>
+        <field-sort-custom-order field='Game ID' />
+        <field-sort-custom-order field='Season' />
+        <field-sort-custom-order field='Week' />
+        <field-sort-custom-order field='Home' />
+        <field-sort-custom-order field='Away' />
+        <field-sort-custom-order field='Start Time' />
+        <field-sort-custom-order field='Start Day' />
+        <field-sort-custom-order field='Total Line' />
+        <field-sort-custom-order field='Under Odds' />
+        <field-sort-custom-order field='Result' />
+        <field-sort-custom-order field='Outcome' />
+      </field-sort-info>
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='Plays' id='Plays_A7316BE6672A4D7F9260C38157F00590'>
+            <properties context=''>
+              <relation connection='cloudfile:googledrive-excel-direct.1vse2cz1ygbs6c141lgw312odu5q' name='Plays' table='[Plays$]' type='table'>
+                <columns gridOrigin='A1:K22:no:A1:K22:0' header='yes' outcome='6'>
+                  <column datatype='string' name='Game ID' ordinal='0' />
+                  <column datatype='integer' name='Season' ordinal='1' />
+                  <column datatype='integer' name='Week' ordinal='2' />
+                  <column datatype='string' name='Home' ordinal='3' />
+                  <column datatype='string' name='Away' ordinal='4' />
+                  <column datatype='string' name='Start Time' ordinal='5' />
+                  <column datatype='string' name='Start Day' ordinal='6' />
+                  <column datatype='real' name='Total Line' ordinal='7' />
+                  <column datatype='integer' name='Under Odds' ordinal='8' />
+                  <column datatype='integer' name='Result' ordinal='9' />
+                  <column datatype='string' name='Outcome' ordinal='10' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Plays_A7316BE6672A4D7F9260C38157F00590' table='[Extract].[Plays_A7316BE6672A4D7F9260C38157F00590]' type='table' />
+            </properties>
+          </object>
+          <object caption='Results' id='Results_B4ECB7A3669940B294943A207FFEEF3A'>
+            <properties context=''>
+              <relation connection='cloudfile:googledrive-excel-direct.1vse2cz1ygbs6c141lgw312odu5q' name='Results' table='[Results$]' type='table'>
+                <columns gridOrigin='A1:V2000:no:A1:V2000:0' header='yes' outcome='2'>
+                  <column datatype='string' name='Game ID' ordinal='0' />
+                  <column datatype='string' name='Season' ordinal='1' />
+                  <column datatype='integer' name='Week' ordinal='2' />
+                  <column datatype='string' name='Home' ordinal='3' />
+                  <column datatype='integer' name='Home Score' ordinal='4' />
+                  <column datatype='string' name='Away' ordinal='5' />
+                  <column datatype='integer' name='Away Score' ordinal='6' />
+                  <column datatype='real' name='Total Line' ordinal='7' />
+                  <column datatype='integer' name='Total' ordinal='8' />
+                  <column datatype='integer' name='Under Odds' ordinal='9' />
+                  <column datatype='integer' name='Over Odds' ordinal='10' />
+                  <column datatype='real' name='Spread' ordinal='11' />
+                  <column datatype='integer' name='Result' ordinal='12' />
+                  <column datatype='string' name='Home QB' ordinal='13' />
+                  <column datatype='string' name='Away QB' ordinal='14' />
+                  <column datatype='string' name='Home Coach' ordinal='15' />
+                  <column datatype='string' name='Away Coach' ordinal='16' />
+                  <column datatype='string' name='Over/Under' ordinal='17' />
+                  <column datatype='string' name='H/A Covered' ordinal='18' />
+                  <column datatype='string' name='Team Covered' ordinal='19' />
+                  <column datatype='string' name='H/A Winner' ordinal='20' />
+                  <column datatype='string' name='Team Winner' ordinal='21' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Results_B4ECB7A3669940B294943A207FFEEF3A' table='[Extract].[Results_B4ECB7A3669940B294943A207FFEEF3A]' type='table' />
+            </properties>
+          </object>
+        </objects>
+        <relationships>
+          <relationship>
+            <expression op='='>
+              <expression op='[Game ID]' />
+              <expression op='[Game ID (Plays)]' />
+            </expression>
+            <first-end-point object-id='Results_B4ECB7A3669940B294943A207FFEEF3A' />
+            <second-end-point object-id='Plays_A7316BE6672A4D7F9260C38157F00590' />
+          </relationship>
+        </relationships>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Game Log'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Over_Under NFL Model' name='federated.1eagq6r0qdbtrn18p4ntk1dq1ipx' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1eagq6r0qdbtrn18p4ntk1dq1ipx'>
+            <column datatype='string' name='[Away QB]' role='dimension' type='nominal' />
+            <column datatype='integer' name='[Away Score]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Away]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Home QB]' role='dimension' type='nominal' />
+            <column datatype='integer' name='[Home Score]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Home]' role='dimension' type='nominal' />
+            <column datatype='integer' name='[Result]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Season]' role='dimension' type='nominal' />
+            <column datatype='real' name='[Spread]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Team Covered]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Team Winner]' role='dimension' type='nominal' />
+            <column datatype='real' name='[Total Line]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[Total]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[Week]' role='dimension' type='ordinal' />
+            <column-instance column='[Spread]' derivation='Attribute' name='[attr:Spread:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Total Line]' derivation='Attribute' name='[attr:Total Line:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Away QB]' derivation='None' name='[none:Away QB:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Away]' derivation='None' name='[none:Away:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Home QB]' derivation='None' name='[none:Home QB:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Home]' derivation='None' name='[none:Home:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Season]' derivation='None' name='[none:Season:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Team Covered]' derivation='None' name='[none:Team Covered:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Team Winner]' derivation='None' name='[none:Team Winner:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Week]' derivation='None' name='[none:Week:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Away Score]' derivation='Sum' name='[sum:Away Score:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Home Score]' derivation='Sum' name='[sum:Home Score:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Result]' derivation='Sum' name='[sum:Result:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Spread]' derivation='Sum' name='[sum:Spread:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Total Line]' derivation='Sum' name='[sum:Total Line:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Total]' derivation='Sum' name='[sum:Total:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[sum:Home Score:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[sum:Away Score:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[sum:Spread:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[sum:Result:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[sum:Total Line:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[sum:Total:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <manual-sort column='[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[:Measure Names]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[sum:Home Score:qk]&quot;</bucket>
+              <bucket>&quot;[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[sum:Away Score:qk]&quot;</bucket>
+              <bucket>&quot;[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[sum:Spread:qk]&quot;</bucket>
+              <bucket>&quot;[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[sum:Result:qk]&quot;</bucket>
+              <bucket>&quot;[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[sum:Total Line:qk]&quot;</bucket>
+            </dictionary>
+          </manual-sort>
+          <filter class='quantitative' column='[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[attr:Spread:qk]' included-values='in-range'>
+            <min>-17.0</min>
+            <max>20.5</max>
+          </filter>
+          <filter class='quantitative' column='[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[attr:Total Line:qk]' included-values='in-range'>
+            <min>28.5</min>
+            <max>57.5</max>
+          </filter>
+          <filter class='categorical' column='[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[none:Away:nk]'>
+            <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[none:Away:nk]' />
+              <groupfilter function='member' level='[none:Away:nk]' member='%null%' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[none:Home:nk]'>
+            <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[none:Home:nk]' />
+              <groupfilter function='member' level='[none:Home:nk]' member='%null%' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[none:Week:ok]'>
+            <groupfilter from='1' function='range' level='[none:Week:ok]' to='22' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[:Measure Names]</column>
+            <column>[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[none:Week:ok]</column>
+            <column>[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[none:Home:nk]</column>
+            <column>[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[none:Away:nk]</column>
+            <column>[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[attr:Spread:qk]</column>
+            <column>[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[attr:Total Line:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[:Measure Names]' value='76' />
+            <format attr='text-format' field='[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[sum:Home Score:qk]' value='N' />
+            <format attr='text-format' field='[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[sum:Away Score:qk]' value='N' />
+            <format attr='text-format' field='[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[sum:Total:qk]' value='N' />
+            <format attr='text-format' field='[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[sum:Total Line:qk]' value='n#,##0.0;-#,##0.0' />
+            <format attr='text-format' field='[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[sum:Result:qk]' value='N' />
+            <format attr='text-format' field='[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[sum:Spread:qk]' value='n#,##0.0;-#,##0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[Multiple Values]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[none:Season:nk] / ([federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[none:Week:ok] / ([federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[none:Home:nk] / ([federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[none:Away:nk] / ([federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[none:Team Covered:nk] / ([federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[none:Team Winner:nk] / ([federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[none:Home QB:nk] / ([federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[none:Away QB:nk] / ([federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[none:Home QB:nk] / [federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[none:Away QB:nk])))))))))</rows>
+        <cols>[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[:Measure Names]</cols>
+      </table>
+      <simple-id uuid='{2E646C06-8CCE-4771-8632-952313461D91}' />
+    </worksheet>
+    <worksheet name='League Win Trends'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Over_Under NFL Model' name='federated.1eagq6r0qdbtrn18p4ntk1dq1ipx' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1eagq6r0qdbtrn18p4ntk1dq1ipx'>
+            <column caption='Match Count' datatype='integer' name='[Calculation_261912526505029633]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='COUNTD([Game ID])' />
+            </column>
+            <column datatype='string' name='[Game ID]' role='dimension' type='nominal' />
+            <column datatype='string' name='[H/A Winner]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Season]' role='dimension' type='nominal' />
+            <column datatype='real' name='[Spread]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Team Winner]' role='dimension' type='nominal' />
+            <column datatype='integer' name='[Week]' role='dimension' type='ordinal' />
+            <column-instance column='[H/A Winner]' derivation='None' name='[none:H/A Winner:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Season]' derivation='None' name='[none:Season:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Spread]' derivation='None' name='[none:Spread:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Team Winner]' derivation='None' name='[none:Team Winner:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Week]' derivation='None' name='[none:Week:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Calculation_261912526505029633]' derivation='User' name='[usr:Calculation_261912526505029633:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[none:Spread:qk]' included-values='in-range'>
+            <min>7.0</min>
+            <max>22.0</max>
+          </filter>
+          <slices>
+            <column>[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[none:Spread:qk]</column>
+          </slices>
+          <aggregation value='false' />
+        </view>
+        <style>
+          <style-rule element='worksheet'>
+            <format attr='in-tooltip' field='[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[none:H/A Winner:nk]' value='false' />
+            <format attr='in-tooltip' field='[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[usr:Calculation_261912526505029633:qk]' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='5' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <text column='[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[none:Season:nk]' />
+              <text column='[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[none:Week:ok]' />
+              <text column='[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[none:Team Winner:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[usr:Calculation_261912526505029633:qk]</rows>
+        <cols>[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[none:H/A Winner:nk]</cols>
+        <mark-labels>
+          <mark-label id='0' label-state='off'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[none:H/A Winner:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[usr:Calculation_261912526505029633:qk]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[none:H/A Winner:nk]</field>
+                  <field>[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[none:Season:nk]</field>
+                  <field>[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[none:Team Winner:nk]</field>
+                  <field>[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[none:Week:ok]</field>
+                  <field>[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[usr:Calculation_261912526505029633:qk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Tie&quot;</value>
+                <value>&quot;2021&quot;</value>
+                <value>&quot;Tie&quot;</value>
+                <value>10</value>
+                <value>1</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+        </mark-labels>
+      </table>
+      <simple-id uuid='{9A4E354D-0240-4D95-A7A0-33E6E31B56F4}' />
+    </worksheet>
+    <worksheet name='Sheet 3'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{BEED239F-2CE3-4837-B9EC-633BFBF05189}' />
+    </worksheet>
+    <worksheet name='Team Win %'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Over_Under NFL Model' name='federated.1eagq6r0qdbtrn18p4ntk1dq1ipx' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1eagq6r0qdbtrn18p4ntk1dq1ipx'>
+            <column caption='Match Count' datatype='integer' name='[Calculation_261912526505029633]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='COUNTD([Game ID])' />
+            </column>
+            <column datatype='string' name='[Game ID]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Team Winner]' role='dimension' type='nominal' />
+            <column datatype='integer' name='[Week]' role='dimension' type='ordinal' />
+            <column-instance column='[Team Winner]' derivation='None' name='[none:Team Winner:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Week]' derivation='None' name='[none:Week:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Calculation_261912526505029633]' derivation='User' name='[usr:Calculation_261912526505029633:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[none:Team Winner:nk]'>
+            <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[none:Team Winner:nk]' />
+              <groupfilter function='union'>
+                <groupfilter function='member' level='[none:Team Winner:nk]' member='&quot;Tie&quot;' />
+                <groupfilter function='member' level='[none:Team Winner:nk]' member='%null%' />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[none:Week:ok]'>
+            <groupfilter from='1' function='range' level='[none:Week:ok]' to='22' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[none:Team Winner:nk]</column>
+            <column>[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[none:Week:ok]</column>
+          </slices>
+          <aggregation value='false' />
+        </view>
+        <style />
+        <panes>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+          </pane>
+        </panes>
+        <rows>[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[usr:Calculation_261912526505029633:qk]</rows>
+        <cols>[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[none:Team Winner:nk]</cols>
+      </table>
+      <simple-id uuid='{21C44C90-EC0B-405B-BB62-9E07D3D22475}' />
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' name='Game Log'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{39997F82-35B8-40F2-820E-06D3C9750D43}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Team Win %'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{EF203A7B-C3B1-444E-B6A0-3E0A0AEFDE52}' />
+    </window>
+    <window class='worksheet' name='League Win Trends'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.1eagq6r0qdbtrn18p4ntk1dq1ipx].[none:Spread:qk]' show-domain='false' show-null-ctrls='false' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{3388B522-86DF-41B3-BE9F-2B762ACA8180}' />
+    </window>
+    <window class='worksheet' name='Sheet 3'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{387A1E10-87EE-4A1C-9B97-09A6E6A09CA9}' />
+    </window>
+  </windows>
+</workbook>
