@@ -17,7 +17,7 @@ if np.isnan(predWeek.week.max()):
 else:
     predWeek = predWeek.week.max() + 1
 
-
+predWeek=2
 # Prepare dataframe by dropping irrelevant predictors and formatting columns for KNN
 df['Under'] = np.where(df['total'] < df['total_line'], 1, 0)
 df['Push'] = np.where(df['total'] == df['total_line'], 1, 0)
@@ -60,11 +60,11 @@ rf = RandomForestClassifier(n_estimators=50, min_samples_split=10, random_state=
 rf.fit(X_train, y_train)
 preds = rf.predict(X_test)
 X_test['Prediction'] = preds
+X_test['Prediction'] = np.where(X_test.Prediction == 1, "Under", "Over")
 # Predicted Plays log
 nextPlays = pd.merge(right=X_test, left=currSeason, right_index=True, left_index=True, how='left')
-nextPlays = nextPlays[nextPlays.Prediction == 1]
-nextPlays = nextPlays[['game_id', 'season_x', 'week_x', 'home_team', 'away_team', 'gametime_x', 'weekday_x', 'total_line_x', 'under_odds_x']]
-nextPlays.columns = ['Game ID', 'Season', 'Week', 'Home', 'Away', 'Start Time', 'Day', 'Total Line', 'Under Odds']
+nextPlays = nextPlays[['game_id', 'season_x', 'week_x', 'home_team', 'away_team', 'gametime_x', 'weekday_x', 'total_line_x', 'Prediction', 'under_odds_x', 'over_odds_x']]
+nextPlays.columns = ['Game ID', 'Season', 'Week', 'Home', 'Away', 'Start Time', 'Day', 'Total Line', 'Prediction', 'Under Odds', 'Over Odds']
 
 # Value cleanup
 dict_day = {"Day": {0: "Sunday", 1: "Monday", 2: "Tuesday", 3: "Wednesday", 4: "Thursday", 5: "Friday", 6: "Saturday"}}
