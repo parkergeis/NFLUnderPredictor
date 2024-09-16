@@ -68,6 +68,7 @@ nextPlays.columns = ['Game ID', 'Season', 'Week', 'Home', 'Away', 'Start Time', 
 # Value cleanup
 dict_day = {"Day": {0: "Sunday", 1: "Monday", 2: "Tuesday", 3: "Wednesday", 4: "Thursday", 5: "Friday", 6: "Saturday"}}
 nextPlays.replace(dict_day, inplace=True)
+nextPlays = nextPlays[nextPlays.Week == predWeek]
 
 # Export to Sheets
 import gspread
