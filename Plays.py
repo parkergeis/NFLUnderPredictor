@@ -39,8 +39,6 @@ dict_roof = {"roof": {"outdoors": 0, "dome": 1, "closed": 2, "open": 3}}
 df.replace(dict_roof, inplace=True)
 dict_surface = {"surface": {"grass": 0, "grass ": 0, "fieldturf": 1, "astroturf": 2, "sportturf": 3, "matrixturf": 4, "astroplay": 5, "a_turf": 6, "dessograss": 7}}
 df.replace(dict_surface, inplace=True)
-dict_surface = {"surface": {"grass": 0, "grass ": 0, "fieldturf": 1, "astroturf": 2, "sportturf": 3, "matrixturf": 4, "astroplay": 5, "a_turf": 6, "dessograss": 7}}
-df.replace(dict_surface, inplace=True)
 
 df = pd.get_dummies(df, drop_first=True, columns=['game_type', 'location', 'stadium_id', 'home_team', 'away_team'])
 
