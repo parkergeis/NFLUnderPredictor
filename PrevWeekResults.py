@@ -20,3 +20,10 @@ total_rows = worksheet2.row_count
 if total_rows > 1:
     worksheet2.batch_clear([f"A2:Q{total_rows}"])
     worksheet2.update("A2", finalScores.values.tolist())
+
+sh = gc.open("NFL Matchup Predictor")
+worksheet2 = sh.worksheet("Results")
+total_rows = worksheet2.row_count
+if total_rows > 1:
+    worksheet2.batch_clear([f"A2:Q{total_rows}"])
+    worksheet2.update("A2", finalScores.values.tolist())
