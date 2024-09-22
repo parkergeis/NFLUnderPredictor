@@ -17,6 +17,8 @@ if np.isnan(predWeek.week.max()):
 else:
     predWeek = predWeek.week.max() + 1
 
+#predWeek=3 # Use for manual manipulation of predWeek
+
 # Prepare dataframe by dropping irrelevant predictors and formatting columns for KNN
 df['Under'] = np.where(df['total'] < df['total_line'], 1, 0)
 df['Push'] = np.where(df['total'] == df['total_line'], 1, 0)
