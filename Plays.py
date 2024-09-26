@@ -17,7 +17,8 @@ if np.isnan(predWeek.week.max()):
 else:
     predWeek = predWeek.week.max() + 1
 
-#predWeek=3 # Use for manual manipulation of predWeek
+# Use for manual manipulation of predWeek
+#predWeek=4 
 
 # Prepare dataframe by dropping irrelevant predictors and formatting columns for KNN
 df['Under'] = np.where(df['total'] < df['total_line'], 1, 0)
@@ -69,6 +70,8 @@ nextPlays.columns = ['Game ID', 'Season', 'Week', 'Home', 'Away', 'Start Time', 
 dict_day = {"Day": {0: "Sunday", 1: "Monday", 2: "Tuesday", 3: "Wednesday", 4: "Thursday", 5: "Friday", 6: "Saturday"}}
 nextPlays.replace(dict_day, inplace=True)
 
+# Use for manual manipulation of day (Th,Sun,Mon)
+nextPlays = nextPlays[nextPlays.Day == "Thursday"]
 # Export to Sheets
 import gspread
 gc = gspread.service_account(filename='/Users/parkergeis/.config/gspread/seismic-bucksaw-427616-e6-5a5f28a2bafc.json')
