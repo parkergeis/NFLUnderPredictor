@@ -4,7 +4,7 @@ from helper_functions import data_load, data_split, rf_model, google_export
 
 year = 2024
 week = 5
-day = "Thursday"
+day = 4 # 0-Sun, 1-Mon, 4-Thu
 
 allSeasons, currSeason = data_load(year, week)
 
