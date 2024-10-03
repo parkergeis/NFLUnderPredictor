@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 import nfl_data_py as nfl
+from sklearn.ensemble import RandomForestClassifier
 
 def data_load(year, week):
     # Variable declaration
@@ -34,9 +35,13 @@ def data_load(year, week):
 
     return df, currSeason
 
-def data_split(df, features, year, week):
+def data_split(df, features, year, week, day="All"):
     train_df = df[(df.season < year) | ((df.season == year) & (df.week < week))]
-    test_df = df[(df.season == year) & (df.week == week)]
+
+    if day != "All":
+        test_df = df[(df.season == year) & (df.week == week) & (df.weekday == day)]
+    else:
+        test_df = df[(df.season == year) & (df.week == week)]
     train_df.dropna(inplace=True)
     X_train = train_df[features]
     y_train = train_df.Under
@@ -44,3 +49,13 @@ def data_split(df, features, year, week):
     y_test = test_df.Under
 
     return X_train, y_train, X_test, y_test
+
+def rf_model(X_train, y_train, X_test):
+    rf = RandomForestClassifier(n_estimators=50, min_samples_split=10, random_state=1)
+    rf.fit(X_train, y_train)
+    preds = rf.predict(X_test)
+    X_test['Prediction'] = preds
+    dict_day = {"weekday": {0: "Sunday", 1: "Monday", 2: "Tuesday", 3: "Wednesday", 4: "Thursday", 5: "Friday", 6: "Saturday"}}
+    X_test.replace(dict_day, inplace=True)
+
+    return X_test
