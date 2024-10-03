@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import nfl_data_py as nfl
 from sklearn.ensemble import RandomForestClassifier
+import gspread
 
 def data_load(year, week):
     # Variable declaration
@@ -59,3 +60,11 @@ def rf_model(X_train, y_train, X_test):
     X_test.replace(dict_day, inplace=True)
 
     return X_test
+
+def google_export(df):
+    gc = gspread.service_account(filename='/Users/parkergeis/.config/gspread/seismic-bucksaw-427616-e6-5a5f28a2bafc.json')
+    sh = gc.open("Over/Under NFL Model")
+
+    # Add weekly plays
+    worksheet1 = sh.worksheet("Plays")
+    worksheet1.append_rows(df.values.tolist())
