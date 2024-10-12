@@ -33,9 +33,6 @@ def data_load(year, week):
     df['weekday'].replace(dict_day, inplace=True)
     df['roof'].replace(dict_roof, inplace=True)
 
-
-    df = pd.get_dummies(df, drop_first=True, columns=['game_type', 'location', 'stadium_id'])
-
     return df, currSeason
 
 def data_split(df, features, year, week, day="All"):
