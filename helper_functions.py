@@ -15,17 +15,10 @@ def data_load(year, week):
     df['Push'] = np.where(df['total'] == df['total_line'], 1, 0)
     df = df[df.Push != 1]
 
-    def date_to_month(time_str):
-        year, month, day = map(int, time_str.split('-'))
-        return month
-    df['month'] = df['gameday'].apply(date_to_month)
-
     # Function to convert time to seconds
     def time_to_seconds(time_str):
         hours, minutes = map(int, time_str.split(':'))
         return hours * 3600 + minutes * 60
-    
-    # Apply the function to the 'time' column
     df['gametime'] = df['gametime'].apply(time_to_seconds)
 
     df['home_team'].replace(dict_nfl_teams, inplace=True)
