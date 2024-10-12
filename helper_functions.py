@@ -14,6 +14,7 @@ def data_load(year, week):
     df['Under'] = np.where(df['total'] < df['total_line'], 1, 0)
     df['Push'] = np.where(df['total'] == df['total_line'], 1, 0)
     df = df[df.Push != 1]
+    df.drop('Push', axis=1, inplace=True)
 
     # Function to convert time to seconds
     def time_to_seconds(time_str):
