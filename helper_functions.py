@@ -3,6 +3,7 @@ import pandas as pd
 import nfl_data_py as nfl
 from sklearn.ensemble import RandomForestClassifier
 import gspread
+from dicts import dict_nfl_teams, dict_day, dict_roof
 
 def data_load(year, week):
     # Variable declaration
@@ -27,12 +28,13 @@ def data_load(year, week):
     # Apply the function to the 'time' column
     df['gametime'] = df['gametime'].apply(time_to_seconds)
 
-    dict_day = {"weekday": {"Sunday": 0, "Monday": 1, "Tuesday": 2, "Wednesday": 3, "Thursday": 4, "Friday": 5, "Saturday": 6}}
-    df.replace(dict_day, inplace=True)
-    dict_roof = {"roof": {"outdoors": 0, "dome": 1, "closed": 2, "open": 3}}
-    df.replace(dict_roof, inplace=True)
+    df['home_team'].replace(dict_nfl_teams, inplace=True)
+    df['away_team'].replace(dict_nfl_teams, inplace=True)
+    df['weekday'].replace(dict_day, inplace=True)
+    df['roof'].replace(dict_roof, inplace=True)
 
-    df = pd.get_dummies(df, drop_first=True, columns=['game_type', 'location', 'stadium_id', 'home_team', 'away_team'])
+
+    df = pd.get_dummies(df, drop_first=True, columns=['game_type', 'location', 'stadium_id'])
 
     return df, currSeason
 
@@ -56,15 +58,14 @@ def rf_model(X_train, y_train, X_test):
     rf.fit(X_train, y_train)
     preds = rf.predict(X_test)
     X_test['Prediction'] = preds
-    dict_day = {"weekday": {0: "Sunday", 1: "Monday", 2: "Tuesday", 3: "Wednesday", 4: "Thursday", 5: "Friday", 6: "Saturday"}}
-    X_test.replace(dict_day, inplace=True)
+    X_test['weekday'].replace(dict_day, inplace=True)
 
     return X_test
 
-def google_export(df):
+def google_export(df, title, sheet):
     gc = gspread.service_account(filename='/Users/parkergeis/.config/gspread/seismic-bucksaw-427616-e6-5a5f28a2bafc.json')
-    sh = gc.open("Over/Under NFL Model")
+    sh = gc.open(title)
 
     # Add weekly plays
-    worksheet1 = sh.worksheet("Plays")
+    worksheet1 = sh.worksheet(sheet)
     worksheet1.append_rows(df.values.tolist())

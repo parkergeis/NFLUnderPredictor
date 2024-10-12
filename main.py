@@ -4,7 +4,7 @@ from helper_functions import data_load, data_split, rf_model, google_export
 
 year = 2024
 week = 5
-day = 4 # 0-Sun, 1-Mon, 4-Thu
+day = 1 # 0-Sun, 1-Mon, 4-Thu
 
 allSeasons, currSeason = data_load(year, week)
 
@@ -20,4 +20,4 @@ nextPlays = nextPlays[nextPlays.Prediction == 1]
 nextPlays = nextPlays[['game_id', 'season_x', 'week_x', 'home_team', 'away_team', 'gametime_x', 'weekday_x', 'total_line_x', 'under_odds_x']]
 nextPlays.columns = ['Game ID', 'Season', 'Week', 'Home', 'Away', 'Start Time', 'Day', 'Total Line', 'Under Odds']
 
-google_export(nextPlays)
+google_export(nextPlays, "Over/Under NFL Model", "Plays")
