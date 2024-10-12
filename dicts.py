@@ -17,6 +17,7 @@ dict_nfl_teams = {
     "KC": 16,  # Kansas City Chiefs
     "LV": 17,  # Las Vegas Raiders
     "LAC": 18, # Los Angeles Chargers
+    "LA": 18,
     "LAR": 19, # Los Angeles Rams
     "MIA": 20, # Miami Dolphins
     "MIN": 21, # Minnesota Vikings
