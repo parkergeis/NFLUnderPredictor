@@ -2,10 +2,12 @@ import numpy as np
 import pandas as pd
 import nfl_data_py as nfl
 import xgboost as xgb
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.ensemble import RandomForestClassifier
 import gspread
 from dicts import dict_nfl_teams, dict_day, dict_roof
+import warnings
+warnings.filterwarnings('ignore')
 
 def data_load(year, week):
     # Variable declaration
@@ -46,14 +48,37 @@ def data_split(df, features, year, week, day="All"):
 
     return X_train, y_train, X_test, y_test
 
+def data_split_tune(df, features):
+    df = df.dropna()
+    y = df.Under
+    X = df[features]
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25)
+
+    return X_train, y_train
+
 def rf_model(X_train, y_train, X_test):
-    rf = RandomForestClassifier(n_estimators=50, min_samples_split=10, random_state=1)
+    rf = RandomForestClassifier(n_estimators=50, min_samples_split=10)
     rf.fit(X_train, y_train)
     preds = rf.predict(X_test)
     X_test['Prediction'] = preds
     X_test['weekday'].replace(dict_day, inplace=True)
 
     return X_test
+
+def xgb_tuning(X_train, y_train):
+    param_grid = {
+        'max_depth': [3, 6, 9],
+        'learning_rate': [0.01, 0.1, 0.2],
+        'n_estimators': [100, 500, 1000],
+        'reg_alpha': [0, 0.1, 0.5],
+        'reg_lambda': [0.1, 0.5, 1.0]
+    }
+
+    xgb_clf = xgb.XGBClassifier(use_label_encoder=False, eval_metric='logloss')
+    grid_search = GridSearchCV(estimator=xgb_clf, param_grid=param_grid, cv=3, scoring='roc_auc', verbose=1)
+    grid_search.fit(X_train, y_train)
+
+    return grid_search.best_params_
 
 def xgb_model(X_train, y_train, X_test, params):
     model = xgb.XGBClassifier(
@@ -63,7 +88,7 @@ def xgb_model(X_train, y_train, X_test, params):
     )
 
     # Evaluation set
-    X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=0.2, random_state=42)
+    X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=0.2)
 
     model.fit(
         X_train, y_train,
@@ -77,7 +102,7 @@ def xgb_model(X_train, y_train, X_test, params):
 
     # Append predictions and probabilities to X_test
     X_test['Prediction'] = y_pred
-    X_test['Under Probability'] = y_pred_proba
+    X_test['Probability'] = y_pred_proba
 
     return X_test
 
