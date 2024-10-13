@@ -1,6 +1,8 @@
 import numpy as np
 import pandas as pd
 import nfl_data_py as nfl
+import xgboost as xgb
+from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 import gspread
 from dicts import dict_nfl_teams, dict_day, dict_roof
@@ -50,6 +52,32 @@ def rf_model(X_train, y_train, X_test):
     preds = rf.predict(X_test)
     X_test['Prediction'] = preds
     X_test['weekday'].replace(dict_day, inplace=True)
+
+    return X_test
+
+def xgb_model(X_train, y_train, X_test, params):
+    model = xgb.XGBClassifier(
+    use_label_encoder=False,
+    eval_metric='logloss',
+    **params
+    )
+
+    # Evaluation set
+    X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=0.2, random_state=42)
+
+    model.fit(
+        X_train, y_train,
+        eval_set=[(X_val, y_val)],
+        verbose=False
+    )
+
+    # Predict probabilities and classes on selected features
+    y_pred_proba = model.predict_proba(X_test)[:, 1]
+    y_pred = model.predict(X_test)
+
+    # Append predictions and probabilities to X_test
+    X_test['Prediction'] = y_pred
+    X_test['Under Probability'] = y_pred_proba
 
     return X_test
 

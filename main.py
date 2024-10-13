@@ -3,8 +3,8 @@ import pandas as pd
 from helper_functions import data_load, data_split, rf_model, google_export
 
 year = 2024
-week = 5
-day = 1 # 0-Sun, 1-Mon, 4-Thu
+week = 6
+day = 0 # 0-Sun, 1-Mon, 4-Thu
 
 allSeasons, currSeason = data_load(year, week)
 
